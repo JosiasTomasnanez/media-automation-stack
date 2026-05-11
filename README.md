@@ -75,21 +75,6 @@ http://qbittorrent.local
 ```text
 .
 ├── docker-compose.yml
-├── cache/
-├── config/
-│   ├── data/
-│   ├── jellyfin/
-│   ├── qbittorrent/
-│   ├── radarr/
-│   ├── prowlarr/
-│   ├── logs/
-│   ├── metadata/
-│   ├── plugins/
-│   ├── root/
-│   └──  jellyfin-data
-└── data/
-    ├──downloads/
-    └── media/
 
 ```
 
