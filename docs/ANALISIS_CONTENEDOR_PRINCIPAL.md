@@ -53,15 +53,13 @@
 
 **Mi hipótesis de por qué pasa:**
 - Jellyfin no tiene un watcher en tiempo real sobre `/media` — escanea en intervalos o cuando se lo pedís manualmente
-- Sin Radarr, no hay nadie que avise a Jellyfin cuando llega contenido nuevo
+- no hay nadie que avise a Jellyfin cuando llega contenido nuevo (puede ser Radarr)
 - El escaneo automático ocurre cada cierto tiempo (configurable), no al instante
 
 **Lo que necesitaría para funcionar bien:**
 - Radarr: avisa a Jellyfin via API cuando termina de mover una película a `/media`
 - Configurar el intervalo de escaneo automático en Jellyfin (Settings → Scheduled Tasks)
-
----
-
+  
 ### Problema 2: Carpeta /config/data/playlists inaccesible
 
 **¿Qué intentaron?**
@@ -144,7 +142,7 @@
 2. Los volúmenes Docker persisten datos entre reinicios, pero la estructura interna de carpetas debe existir previamente
 3. En arquitecturas de microservicios cada servicio hace una sola cosa bien — Jellyfin sirve, Radarr gestiona, qBittorrent descarga
 
-**Comandos útiles que descubrimos:**
+**Comandos útiles que usamos:**
 ```bash
 # Ver logs en tiempo real
 docker compose logs jellyfin
