@@ -49,16 +49,14 @@
 **Pregunta de análisis:**
 - ¿Dónde debería guardarse el contenido? En el host, en `./media/`, mapeado al contenedor como `/media`
 - ¿Está en el contenedor o en el host? En el host (volumen montado), pero el contenedor no lo detecta automáticamente
-- ¿Desapareció después de docker-compose down? No, porque es un volumen del host. Pero Jellyfin necesita re-escanear cada vez
+- ¿Desapareció después de docker-compose down? No, porque es un volumen del host.
 
 **Mi hipótesis de por qué pasa:**
 - Jellyfin no tiene un watcher en tiempo real sobre `/media` — escanea en intervalos o cuando se lo pedís manualmente
 - no hay nadie que avise a Jellyfin cuando llega contenido nuevo (puede ser Radarr)
-- El escaneo automático ocurre cada cierto tiempo (configurable), no al instante
 
 **Lo que necesitaría para funcionar bien:**
 - Radarr: avisa a Jellyfin via API cuando termina de mover una película a `/media`
-- Configurar el intervalo de escaneo automático en Jellyfin (Settings → Scheduled Tasks)
   
 ### Problema 2: Carpeta /config/data/playlists inaccesible
 
@@ -134,8 +132,6 @@
 **¿Por qué Jellyfin solo NO es suficiente?**
 - No detecta contenido nuevo en tiempo real sin un servicio que le avise (Radarr)
 - No puede buscar ni descargar contenido por sí solo
-- La carpeta de playlists requiere inicialización manual
-- El usuario tiene que gestionar archivos manualmente, lo que rompe la experiencia de "Netflix casero"
 
 **¿Qué aprendimos?**
 1. Un contenedor aislado expone sus limitaciones rápidamente — Jellyfin necesita que otros servicios "alimenten" su carpeta `/media`
