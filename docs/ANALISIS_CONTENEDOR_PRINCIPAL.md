@@ -58,40 +58,7 @@
 **Lo que necesitaría para funcionar bien:**
 - Radarr: avisa a Jellyfin via API cuando termina de mover una película a `/media`
   
-### Problema 2: Carpeta /config/data/playlists inaccesible
-
-**¿Qué intentaron?**
-- Simplemente iniciar Jellyfin y navegar la interfaz
-- Intentar crear una playlist
-
-**¿Qué pasó?**
-- Jellyfin reporta que la carpeta de playlists no existe o no tiene permisos
-
-**Evidencia (logs):**
-```
-[19:02:16] [WRN] [26] MediaBrowser.Controller.Entities.BaseItem: Library folder /config/data/playlists is inaccessible or empty, skipping
-[19:27:45] [WRN] [52] MediaBrowser.Controller.Entities.BaseItem: Library folder /config/data/playlists is inaccessible or empty, skipping
-```
-
-**Pregunta de análisis:**
-- ¿Dónde debería guardarse? En `/config/data/playlists` dentro del contenedor, mapeado a `./config/jellyfin/data/playlists` en el host
-- ¿Está en el contenedor o en el host? Debería estar en el volumen `./config/jellyfin`, pero la subcarpeta `playlists` no se creó automáticamente
-- ¿Desapareció después de docker-compose down? La carpeta persiste si el volumen está montado, pero si no existe desde el inicio Jellyfin no la crea sola
-
-**Mi hipótesis de por qué pasa:**
-- El volumen `./config/jellyfin` existe pero Jellyfin espera que la subcarpeta `playlists` ya esté creada
-- Es un problema de inicialización: Docker monta el volumen pero no crea la estructura interna de carpetas
-
-**Lo que necesitaría para funcionar:**
-- Crear la carpeta manualmente antes de levantar el contenedor:
-  ```bash
-  mkdir -p ./config/jellyfin/data/playlists
-  ```
-- O agregar un script de inicialización en el compose
-
----
-
-### Problema 3: Sin descarga automática de contenido
+### Problema 2: Sin descarga automática de contenido
 
 **¿Qué intentaron?**
 - Buscar una película directamente en Jellyfin
