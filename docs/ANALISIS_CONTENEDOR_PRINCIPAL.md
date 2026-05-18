@@ -31,7 +31,7 @@
 
 **¿Qué intentaron?**
 - Se agregó `/media` como biblioteca en Jellyfin
-- Se colocó un archivo `WhatsApp Video.mp4` en `./media/` del host
+- Se colocó un archivo `Video 1.mp4` en `./media/` del host
 - Se esperó a que Jellyfin escaneara automáticamente
 
 **¿Qué pasó?**
