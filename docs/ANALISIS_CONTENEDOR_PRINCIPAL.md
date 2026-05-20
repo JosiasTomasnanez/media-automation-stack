@@ -153,9 +153,6 @@ Los permisos del archivo fueron diferentes en cuestiones del sistema operativo: 
 - **¿Apareció en Jellyfin?** Solo al escanear manualmente
 - **¿Qué metadata mostró?** Titulo, descripción y año: *San Francisco, 1985. Two opposites attract at a modern dance company. Together, their courage and resilience are tested as they navigate a world full of risks and promise, against the backdrop of a disease no one seems to know anything about*.
 
-  
-  ---------------------------------------------------------------------------------------------------
-
 ## Docker-compose.yml
 
 *Faltan los servicios nombrados anteriormente (radarr, qbitorrent, prowlarr y traefik). Traefik se puede buscar por dockerhub pero los demas no y se encuentran en un linuxserver. No fueron necesarias las variables de entorno*
@@ -187,6 +184,25 @@ Los permisos del archivo fueron diferentes en cuestiones del sistema operativo: 
 **¿Es el puerto DENTRO del contenedor o el EXPUESTO al host?**
 
 *Estamos hablando del puerto dentro del contenedor no del expuesto en el host*
+
+## Vailidar que funciona
+
+
+- **Radarr debe conectarse a qBittorrent.**
+- **¿Cómo verifican que la conexión es exitosa?**
+    - **En la interfaz web de Radarr, ¿hay status de conexión?**
+    - **En los logs de Radarr, ¿hay mensajes de éxito/error?**
+    - **Investiguen: `docker-compose logs radarr` → busquen keywords**
+
+*En la interfaz web podemos verificar el status de la conexión a través de settings agregando un "download client"*
+
+*En los logs de Radarr podemos ver que la conexión inicialmente hubo un error pero luego fue corregido y tuvo exito*
+
+```
+radarr  | \[Warn] RadarrErrorPipeline: Invalid request Validation failed: 
+radarr  | [Warn] RadarrErrorPipeline: Invalid request Validation failed:
+radarr  |  -- Host: Unable to connect to qBittorrent
+```
 
 
 
