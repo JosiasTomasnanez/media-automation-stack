@@ -165,7 +165,7 @@ Los permisos del archivo fueron diferentes en cuestiones del sistema operativo: 
 
 ## Docker-compose.yml
 
-*Faltan los servicios nombrados anteriormente (radarr, qbitorrent, prowlarr y traefik). Traefik se puede buscar por dockerhub pero los demas no y se encuentran en un linuxserver. No fueron necesarias las variables de entorno*
+*Faltan los servicios nombrados anteriormente (radarr, qbitorrent, prowlarr y traefik). Se puede buscar por dockerhub; traefik con imagen original y el resto estan subidas por Linuxserver. No fueron necesarias las variables de entorno*
 
 #### Problema 1: Service Discovery (¿Cómo un servicio encuentra a otro?)
 
