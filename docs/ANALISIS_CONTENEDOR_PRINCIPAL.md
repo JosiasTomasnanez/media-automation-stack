@@ -156,7 +156,7 @@ Los permisos del archivo fueron diferentes en cuestiones del sistema operativo: 
   
   ---------------------------------------------------------------------------------------------------
 
-##Docker-compose.yml
+## Docker-compose.yml
 
 *Faltan los servicios nombrados anteriormente (radarr, qbitorrent, prowlarr y traefik). Traefik se puede buscar por dockerhub pero los demas no y se encuentran en un linuxserver. No fueron necesarias las variables de entorno*
 
