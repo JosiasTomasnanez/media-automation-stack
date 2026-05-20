@@ -310,25 +310,25 @@ Editamos y guardamos
 
    *mkcert es una herramienta que crea certificados SSl/TSL validos para un desarrollo local. Para generar los certificados primero crea su propia "Autoridad de Certificacion" localmente y luego firma el certificado con ella.*
 
-   #### En Linux se guardan en
+   **En Linux se guardan en**
 
-   ```
+```
 ~/.local/share/mkcert
 ```
 
-   #### En Windows se guardan en
+   **En Windows se guardan en**
 
-   ```
+```
 C:\Users\USUARIO\AppData\Local\mkcert
 ```
 
-   ```
+```
 mkcert -install
 se crea la Autoridad de Certificacion local
 y registra en el SO para confiar en los certificados
 ```
 
-   \---
+  
 
 
 
