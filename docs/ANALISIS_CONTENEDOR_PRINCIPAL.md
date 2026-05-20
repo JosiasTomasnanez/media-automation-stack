@@ -53,7 +53,7 @@
 
 **Mi hipótesis de por qué pasa:**
 - Jellyfin no tiene un watcher en tiempo real sobre `/media` — escanea en intervalos o cuando se lo pedís manualmente
-- no hay nadie que avise a Jellyfin cuando llega contenido nuevo (puede ser Radarr)
+- no hay nadie que avise a Jellyfin cuando llega contenido nuevo
 
 **Lo que necesitaría para funcionar bien:**
 - Radarr: avisa a Jellyfin via API cuando termina de mover una película a `/media`
