@@ -94,7 +94,7 @@
 1. **Radarr** — sin él, nadie avisa a Jellyfin cuando hay contenido nuevo y no hay descarga automatizada
 2. **qBittorrent** — Radarr necesita un cliente torrent para ejecutar las descargas
 3. **Prowlarr** — sin fuentes de búsqueda, Radarr no sabe dónde encontrar los torrents
-4. **Traefik** — no es estrictamente necesario, pero simplifica el acceso a todos los servicios con dominios locales en vez de puertos
+4. **Traefik** — Simplifica el acceso a todos los servicios con dominios locales en vez de puertos. 
 
 **¿Por qué Jellyfin solo NO es suficiente?**
 - No detecta contenido nuevo en tiempo real sin un servicio que le avise (Radarr)
