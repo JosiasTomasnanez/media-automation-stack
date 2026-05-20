@@ -107,6 +107,9 @@
 
 **Comandos útiles que usamos:**
 ```bash
+# Levantar docker compose
+ docker compose up 
+
 # Ver logs en tiempo real
 docker compose logs jellyfin
 
