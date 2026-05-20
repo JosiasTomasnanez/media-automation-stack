@@ -285,4 +285,50 @@ Editamos y guardamos
 127.0.0.1 jellyfin.media.local
 127.0.0.1 radarr.media.local
 ```
+## El Problema de HTTPS
+
+**Traefik puede hacer HTTPS.** Pero HTTPS necesita certificados.
+
+**El problema:**
+
+- Certificados de Let's Encrypt son para dominios públicos
+- `media.local` NO es público
+- El navegador va a protestar ("certificate not valid")
+
+**Solución: mkcert**
+
+- Herramienta que crea certificados FALSOS pero válidos localmente
+- El navegador confía porque los instalaron localmente
+- Solo funciona en tu máquina
+
+**Investiguen:**
+
+1. ¿Qué es mkcert?
+2. ¿Cómo genera certificados?
+3. ¿Dónde guarda los certificados? (Traefik necesita encontrarlos)
+4. ¿Cómo "registra" en tu SO que confíe en esos certificados?
+
+   *mkcert es una herramienta que crea certificados SSl/TSL validos para un desarrollo local. Para generar los certificados primero crea su propia "Autoridad de Certificacion" localmente y luego firma el certificado con ella.*
+
+   #### En Linux se guardan en
+
+   ```
+~/.local/share/mkcert
+```
+
+   #### En Windows se guardan en
+
+   ```
+C:\Users\USUARIO\AppData\Local\mkcert
+```
+
+   ```
+mkcert -install
+se crea la Autoridad de Certificacion local
+y registra en el SO para confiar en los certificados
+```
+
+   \---
+
+
 
