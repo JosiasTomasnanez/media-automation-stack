@@ -153,4 +153,36 @@ Los permisos del archivo fueron diferentes en cuestiones del sistema operativo: 
 - **¿Apareció en Jellyfin?** Solo al escanear manualmente
 - **¿Qué metadata mostró?** Titulo, descripción y año: *San Francisco, 1985. Two opposites attract at a modern dance company. Together, their courage and resilience are tested as they navigate a world full of risks and promise, against the backdrop of a disease no one seems to know anything about*.
 
+##Docker-compose.yml
+*Faltan los servicios nombrados anteriormente (radarr, qbitorrent, prowlarr y traefik). Traefik se puede buscar por dockerhub pero los demas no y se encuentran en un linuxserver. No fueron necesarias las variables de entorno*
+
+#### Problema 1: Service Discovery (¿Cómo un servicio encuentra a otro?)
+
+**¿Cómo se comunican dos servicios en docker-compose?**
+
+*Los contenedores reciben una IP dinámica asignada por el motor de Docker dentro del rango de la red virtual bridge creada por Docker Compose. Para ver la ip hay que ejecutar el comando : docker inspect*
+
+**¿Por nombre del servicio? (¿es posible?)**
+
+*Si, es posible por nombre del servicio, es la forma recomendada para conectar los servicios. Se hace dentro del docker-compose.yml*
+
+**¿Por hostname especial?**
+
+*Tambien es posible pero no es necesario ya que docker compose se encarga de inyectar los alias de la red basandose en la clave del servicio*
+
+**En el docker-compose.yml, cada servicio tiene un nombre:**
+
+- **¿Puede Radarr usar `qbittorrent` como hostname?**
+- **Investiguen: "Docker service name DNS resolution"**
+
+*Radarr puede utilizar qbittorrent como hostname para ello deben compartir la network de docker.*
+*Docker service name DNS resolution hace referencia a que docker permite a los contenedores a comunicarse entre si utilizando el nombre definido en el archivo de docker-compose.yml o mediante la linea de comandos usando las direcciones ip estaticas.*
+
+**Pregunta de diseño:**
+**Si qBittorrent escucha en puerto 8080 DENTRO del contenedor**
+**¿Es el puerto DENTRO del contenedor o el EXPUESTO al host?**
+
+*Estamos hablando del puerto dentro del contenedor no del expuesto en el host*
+
+
 
