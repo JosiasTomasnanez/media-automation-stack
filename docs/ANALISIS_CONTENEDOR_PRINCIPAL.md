@@ -108,7 +108,9 @@
 **Comandos útiles que usamos:**
 ```bash
 # Levantar docker compose
- docker compose up 
+ docker compose up
+# Reiniciar los contenderos del docker compose
+docker compose restart 
 
 # Ver logs en tiempo real
 docker compose logs jellyfin
@@ -130,6 +132,11 @@ docker compose stop radarr prowlarr qbittorrent traefik
 
 # Volver a levantar todo
 docker compose start radarr prowlarr qbittorrent traefik
+
+# Ingresar a un contenedor
+docker exec -it <contenedor> sh
+
+
 ```
 **Jellyfin - Prueba manual:**
 
