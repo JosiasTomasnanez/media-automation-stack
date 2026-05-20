@@ -32,7 +32,7 @@ services:
       - media
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.jellyfin.rule=Host(`j.localhost`) || PathPrefix(`/`)"
+      - "traefik.http.routers.jellyfin.rule=Host(`j.localhost`)"
       - "traefik.http.routers.jellyfin.entrypoints=web"
       - "traefik.http.services.jellyfin.loadbalancer.server.port=8096"
 
