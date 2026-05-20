@@ -222,4 +222,67 @@ Traefik se conecta a una api o socket de docker "/var/run/docker.sock" permitien
 Los labels son la mejore opcion para multiples servicios ya que te permiten configurarlos todos en un mismo archivo y de manera dinamica, sin ellos deberiamos de tener multiples archivos de configuracion.*
 
 
+## El Problema de Dominios Locales
+
+
+**Si escriben  el dominio en el navegar en el navegador:**
+
+- **El navegador busca dónde está `media.local`**
+- **Va al servidor DNS (Google, ISP, etc)**
+- **Pero `media.local` NO existe en internet global**
+
+**¿Cómo lo resuelven?**
+
+**Opción A - `/etc/hosts`:**
+
+```shell
+# En /etc/hosts (en el HOST, no en Docker)
+127.0.0.1 media.local
+127.0.0.1 jellyfin.media.local
+127.0.0.1 radarr.media.local
+```
+
+- **El SO consulta `/etc/hosts` ANTES de ir a DNS**
+- **Así localhost sabe que "jellyfin.media.local" es 127.0.0.1**
+
+**Opción B - DNS local:**
+
+- **Instalar un servidor DNS local (dnsmasq)**
+- **Configurar que `*.media.local` apunte a 127.0.0.1**
+- **Más complejo, pero automático**
+
+**Investiguen:**
+
+- **¿Cómo editar `/etc/hosts` en su SO?**
+- **Permiso de escribir en `/etc/hosts`**
+- **Sintaxis exacta**
+
+ #### ***Para editar en Linux***
+
+  Para editar en Linux
+sudo vim /etc/hosts
+Editamos y guardamos
+
+ #### ***Para editar en Linux***
+
+```
+sudo vim /etc/hosts
+Editamos y guardamos
+```
+
+   #### ***Para editar en Windows***
+```
+C:\Windows\System32\drivers\etc\hosts
+Abrimos con un editor de texto
+Editamos y guardamos
+```
+*En cuanto a los permisos deberiamos de ejecutar con sudo o en caso de windows ejecutamos como administrador*
+
+  #### Sintaxis exacta
+
+  ```
+127.0.0.1 media.local
+127.0.0.1 jellyfin.media.local
+127.0.0.1 radarr.media.local
+```
 
