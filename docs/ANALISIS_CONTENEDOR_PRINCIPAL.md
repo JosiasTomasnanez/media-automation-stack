@@ -204,5 +204,22 @@ radarr  | [Warn] RadarrErrorPipeline: Invalid request Validation failed:
 radarr  |  -- Host: Unable to connect to qBittorrent
 ```
 
+## ¿Cómo Sabe Traefik Dónde Enrutar?
+
+**Diferencia entre proxy normal y proxy inverso**
+
+  *La diferencia directa entre proxy normal e inverso es que el proxy normal se encuentra del lado del cliente donde el cliente usa el proxy para conectarse con un servicio, en cambio, el proxy inverso se conecta del lado del servidor donde el cliente accede al proxy y este lo redirige al servicio.
+  Se llama inverso porque representa al servidor, en el normal representa al cliente.
+Traefik se encuentra en el lado del servidor en cuanto a la arquitectura.*
+
+Investiguen:
+- **¿Qué es un "label" en Docker?**
+- **¿Cómo lee Traefik los labels de servicios?**
+- **¿Cuál opción es mejor para múltiples servicios?**
+
+*Un label en docker es un metadato de clave-valor que se agregan a los servicios permitiendo que herramientas puedan leer cierta configuracion.
+Traefik se conecta a una api o socket de docker "/var/run/docker.sock" permitiendo asi monitorear constantemente los contenedores para asi poder leer los labels de los servicios.
+Los labels son la mejore opcion para multiples servicios ya que te permiten configurarlos todos en un mismo archivo y de manera dinamica, sin ellos deberiamos de tener multiples archivos de configuracion.*
+
 
 
