@@ -152,6 +152,8 @@ Los permisos del archivo fueron diferentes en cuestiones del sistema operativo: 
 - **Carpeta donde lo colocaron:** './media/video1.mp4'
 - **¿Apareció en Jellyfin?** Solo al escanear manualmente
 - **¿Qué metadata mostró?** Titulo, descripción y año: *San Francisco, 1985. Two opposites attract at a modern dance company. Together, their courage and resilience are tested as they navigate a world full of risks and promise, against the backdrop of a disease no one seems to know anything about*.
+
+  
   ---------------------------------------------------------------------------------------------------
 
 ##Docker-compose.yml
