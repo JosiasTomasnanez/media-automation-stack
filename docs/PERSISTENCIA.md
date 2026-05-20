@@ -13,6 +13,7 @@ Antes de decir "terminé", PRUEBEN:
 - Por qué cada uno es necesario
 - Dónde en el HOST quedan los datos
 - Comando para "limpiar todo" (si necesitaran borrar datos)
+-------------------------------------------------------------------------------
 
 **Volumenes declarados y porque son necesarios:**
 - media : Contenido de jellyfin, en este caso, peliculas. Permite que jellyfin acceda a las peliculas almacenadas en dicho volumen.
