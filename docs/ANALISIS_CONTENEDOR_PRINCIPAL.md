@@ -128,4 +128,29 @@ docker compose stop radarr prowlarr qbittorrent traefik
 # Volver a levantar todo
 docker compose start radarr prowlarr qbittorrent traefik
 ```
+**Jellyfin - Prueba manual:**
+
+ **¿Dónde espera Jellyfin las películas?**
+    
+    - Jellyfin es un servidor que SIRVE archivos que ya existen en el filesystem
+    - Pero ¿en cuál carpeta los busca?
+    - Busquen en la documentación de Jellyfin: ¿cuál es la carpeta por defecto?
+    - ¿Cómo se configura dónde buscar?
+
+Al crear la biblioteca dentro de la UI de Jellyfin busca los archivos en la carpeta que nosotros configuremos. por defecto, busca los archivos en la carpeta /media y dentro de la interfaz de usuario al crear una biblioteca podemos seleccionar en que directorio buscar los archivos.
+
+ **Coloquen el archivo en la carpeta esperada:**
+    
+    - ¿Dónde copiaron? (responda la ruta exacta)
+    - ¿Cómo verifican que el archivo está ahí? (comando para listar)
+    - ¿Qué permisos tiene? (`ls -la`)
+
+El archivo de prueba fue creado en la carpeta ./media del repositorio del proyecto verificando con 'ls ./media'. 
+Los permisos del archivo fueron diferentes en cuestiones del sistema operativo: En windows el archivo tuvo todos los permisos. En linux fue creado por el usuario root, el grupo tenia permisos de lectura y escritura, y en cuanto a usuarios "otros" tenia permisos solo de lectura.
+
+- **Archivo** : video1.mp4
+- **Carpeta donde lo colocaron:** './media/video1.mp4'
+- **¿Apareció en Jellyfin?** Solo al escanear manualmente
+- **¿Qué metadata mostró?** Titulo, descripción y año: *San Francisco, 1985. Two opposites attract at a modern dance company. Together, their courage and resilience are tested as they navigate a world full of risks and promise, against the backdrop of a disease no one seems to know anything about*.
+
 
